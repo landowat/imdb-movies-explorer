@@ -3,8 +3,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/landowat/imdb-movies-explorer?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/landowat/imdb-movies-explorer?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/landowat/imdb-movies-explorer?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/landowat/imdb-movies-explorer?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/landowat/imdb-movies-explorer?style=for-the-badge)
 
 ![Óculos 3D para filmes e ingressos](https://i.imgur.com/cHOJjzq.jpg)
 
