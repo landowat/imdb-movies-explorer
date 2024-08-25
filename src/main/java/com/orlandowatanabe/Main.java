@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
+import com.orlandowatanabe.models.Movie;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
+        List<Movie> movies = new ArrayList<Movie>();
+
         Dotenv dotenv = Dotenv.load();
 
         String apiKey = dotenv.get("API_KEY");
@@ -53,41 +57,27 @@ public class Main {
             Pattern typePattern = Pattern.compile("\"Type\":\"(.*?)\"");
             Pattern posterPattern = Pattern.compile("\"Poster\":\"(.*?)\"");
 
-            List<String> titles = new ArrayList<>();
-            List<String> years = new ArrayList<>();
-            List<String> imdbID = new ArrayList<>();
-            List<String> type = new ArrayList<>();
-            List<String> posters = new ArrayList<>();
-
             Matcher titleMatcher = titlePattern.matcher(moviesList);
             Matcher yearMatcher = yearPattern.matcher(moviesList);
             Matcher imdbIDMatcher = imdbIDPattern.matcher(moviesList);
             Matcher typeMatcher = typePattern.matcher(moviesList);
             Matcher posterMatcher = posterPattern.matcher(moviesList);
 
-            while (titleMatcher.find()) {
-                titles.add(titleMatcher.group(1));
-            }
-            while (yearMatcher.find()) {
-                years.add(yearMatcher.group(1));
-            }
-            while (imdbIDMatcher.find()) {
-                imdbID.add(imdbIDMatcher.group(1));
-            }
-            while (typeMatcher.find()) {
-                type.add(typeMatcher.group(1));
-            }
-            while (posterMatcher.find()) {
-                posters.add(posterMatcher.group(1));
+            while (titleMatcher.find() && yearMatcher.find() && imdbIDMatcher.find() && typeMatcher.find() && posterMatcher.find()) {
+                String title = titleMatcher.group(1);
+                String year = yearMatcher.group(1);
+                String imdbID = imdbIDMatcher.group(1);
+                String type = typeMatcher.group(1);
+                String urlImage = posterMatcher.group(1);
+
+                Movie movie = new Movie(title, year, imdbID, type, urlImage);
+                movies.add(movie);
             }
 
-            // Imprimindo os resultados
-            System.out.println("Titles: " + titles);
-            System.out.println("Years: " + years);
-            System.out.println("IMDbID: " + imdbID);
-            System.out.println("Type: " + type);
-            System.out.println("Posters: " + posters);
-
+            // Imprimindo os filmes adicionados
+            for (Movie movie : movies) {
+                System.out.println(movie);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
