@@ -16,7 +16,7 @@ Imagem por [Freepik](https://br.freepik.com/fotos-gratis/oculos-3d-para-filmes-e
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
 - [x] #7DaysOfCode - Dia 1/7
-- [ ] #7DaysOfCode - Dia 2/7
+- [x] #7DaysOfCode - Dia 2/7
 - [ ] #7DaysOfCode - Dia 3/7
 - [ ] #7DaysOfCode - Dia 4/7
 - [ ] #7DaysOfCode - Dia 5/7
@@ -31,6 +31,11 @@ O que foi implementado até o momento no projeto:
 **#7DaysOfCode - Dia 1/7**
 - Criar conta no ~~IMDb~~ OMDb para ter a chave de acesso ao serviço (apiKey);
 - Requisição HTTP do tipo GET utilizando o pacote **_java.net.http_** e as classes **_HttpRequest_**, **_HttpClient_** e **_HttpResponse_**;
+
+**#7DaysOfCode - Dia 2/7**
+- Extrair informação de JSON com lista de filmes;
+- Para cada filme, extrair as informações dos campos titles, poster, year e type;
+- Utilizar métodos da classe java.lang.String como substring(), split() e replace().
 
 > Obs: A API IMDb não está mais disponível, por isso foi decidido utilizar a API OMDb.
 
@@ -61,7 +66,7 @@ Em construção...
 
 ## ☕ Usando Imdb Movies Explorer
 
-Para usar <nome_do_projeto>, siga estas etapas:
+Para usar Imdb Movies Explorer, siga estas etapas:
 
 ```
 Em construção...
