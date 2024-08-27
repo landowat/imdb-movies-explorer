@@ -42,3 +42,6 @@ build/
 
 ### IDEA ###
 .idea/
+
+### OUTPUT ###
+output/

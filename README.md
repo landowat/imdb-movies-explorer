@@ -17,7 +17,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ✅ #7DaysOfCode - Dia 1/7  
 ✅ #7DaysOfCode - Dia 2/7  
 ✅ #7DaysOfCode - Dia 3/7  
-⏳ #7DaysOfCode - Dia 4/7  
+✅ #7DaysOfCode - Dia 4/7  
 ⏳ #7DaysOfCode - Dia 5/7  
 ⏳ #7DaysOfCode - Dia 6/7  
 ⏳ #7DaysOfCode - Dia 7/7
@@ -49,6 +49,12 @@ O que foi implementado até o momento no projeto:
 >
 >Não Interfaceado: A classe `Movie` não foi interfaceada porque, no escopo atual do projeto, não há necessidade de diferentes implementações de filmes. Mantemos o código simples e direto.
 
+### **#7DaysOfCode - Dia 4/7**
+- Criação de uma nova classe HTMLGenerator, para criação de página HTML onde serão apresentados os filmes selecionados.
+- Criação da classe MovieUtils para incluir métodos auxiliares, como parseMovies e writeMoviesToHtml, melhorando a organização e a modularidade do código.
+- Atualização da main para usar os métodos da nova classe MovieUtils, melhorando a clareza e a manutenção do código.
+- Criação de diretório de saída de página HTML.
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -75,6 +81,7 @@ Para instalar o Imdb Movies Explorer, siga estas etapas:
 
     ```env
     API_KEY=<sua_chave_omdb>
+    MOVIE_REPORT="output/movies_report.html"
     ```
 
 3. Compile o projeto com Maven:
@@ -99,7 +106,8 @@ Para usar o Imdb Movies Explorer, siga estas etapas:
 2. **O que a aplicação faz:**
     - A aplicação faz uma requisição para a API OMDb para buscar filmes que contêm o termo "Avengers".
     - Os dados dos filmes retornados são extraídos (título, ano, IMDb ID, tipo e URL do pôster) e armazenados como objetos na classe `Movie`.
-    - Os filmes são listados no console, exibindo todas as informações capturadas.
+    - ~~Os filmes são listados no console, exibindo todas as informações capturadas.~~
+    - Os filmes serão apresentados em uma página HTML, gerada no diretório output.
 
    **Detalhes adicionais:**
     - A aplicação utiliza expressões regulares para extrair informações do JSON retornado.
