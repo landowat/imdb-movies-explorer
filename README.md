@@ -55,6 +55,10 @@ O que foi implementado até o momento no projeto:
 - Atualização da main para usar os métodos da nova classe MovieUtils, melhorando a clareza e a manutenção do código.
 - Criação de diretório de saída de página HTML.
 
+### **#7DaysOfCode - Dia 5/7**
+- Encapsulamento da chamada API na classe ImdbApiClient.
+- Encapsulamento do parseamento do JSON na classe ImdbMovieJsonParser.
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
