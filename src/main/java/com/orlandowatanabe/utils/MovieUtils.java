@@ -1,6 +1,8 @@
 package com.orlandowatanabe.utils;
 
 import com.orlandowatanabe.models.Movie;
+import com.orlandowatanabe.presentation.HTMLGenerator;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
