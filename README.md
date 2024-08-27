@@ -18,7 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ✅ #7DaysOfCode - Dia 2/7  
 ✅ #7DaysOfCode - Dia 3/7  
 ✅ #7DaysOfCode - Dia 4/7  
-⏳ #7DaysOfCode - Dia 5/7  
+✅ #7DaysOfCode - Dia 5/7  
 ⏳ #7DaysOfCode - Dia 6/7  
 ⏳ #7DaysOfCode - Dia 7/7
 
@@ -54,6 +54,10 @@ O que foi implementado até o momento no projeto:
 - Criação da classe MovieUtils para incluir métodos auxiliares, como parseMovies e writeMoviesToHtml, melhorando a organização e a modularidade do código.
 - Atualização da main para usar os métodos da nova classe MovieUtils, melhorando a clareza e a manutenção do código.
 - Criação de diretório de saída de página HTML.
+
+### **#7DaysOfCode - Dia 5/7**
+- Encapsulamento da chamada API na classe ImdbApiClient.
+- Encapsulamento do parseamento do JSON na classe ImdbMovieJsonParser.
 
 ## 💻 Pré-requisitos
 
