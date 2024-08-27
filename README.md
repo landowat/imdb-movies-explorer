@@ -18,7 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ✅ #7DaysOfCode - Dia 2/7  
 ✅ #7DaysOfCode - Dia 3/7  
 ✅ #7DaysOfCode - Dia 4/7  
-⏳ #7DaysOfCode - Dia 5/7  
+✅ #7DaysOfCode - Dia 5/7  
 ⏳ #7DaysOfCode - Dia 6/7  
 ⏳ #7DaysOfCode - Dia 7/7
 
