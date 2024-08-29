@@ -1,35 +1,39 @@
 package com.orlandowatanabe;
 
-import java.util.List;
-
-import com.orlandowatanabe.clients.ImdbApiClient;
-import com.orlandowatanabe.models.Movie;
-import com.orlandowatanabe.parsers.ImdbMovieJsonParser;
-import com.orlandowatanabe.utils.MovieUtils;
+import com.orlandowatanabe.config.AppConfigProperties;
+import com.orlandowatanabe.services.ReportService;
 import io.github.cdimascio.dotenv.Dotenv;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.boot.SpringApplication;
 
+import java.io.IOException;
+
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        Dotenv dotenv = Dotenv.load();
-        String apiKey = dotenv.get("API_KEY");
-        String movieReportPath = dotenv.get("MOVIE_REPORT");
+        Dotenv dotenv = Dotenv.configure().load();
 
+        dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
 
-        try {
-            // Chamada da API encapsulada
-            ImdbApiClient apiClient = new ImdbApiClient(apiKey);
-            String jsonResponse = apiClient.getBody();
+        SpringApplication.run(Main.class, args);
+    }
 
-            // Parseamento do JSON encapsulado
-            ImdbMovieJsonParser jsonParser = new ImdbMovieJsonParser(jsonResponse);
-            List<Movie> movies = jsonParser.parse();
-
-            // Escrita do HTML usando MovieUtils
-            MovieUtils.writeMoviesToHtml(movies, movieReportPath);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Bean
+    public CommandLineRunner run(ReportService reportService, AppConfigProperties properties) {
+        return args -> {
+            try {
+                reportService.generateMovieReport(properties.getMovieReportPath());
+                reportService.generateMarvelReport(properties.getMarvelReportPath());
+            } catch (IOException io) {
+                System.err.println("Erro na operação de entrada e saída: " + io.getMessage());
+            } catch (InterruptedException ie) {
+                System.err.println("Thread foi interrompida: " + ie.getMessage());
+            } catch (Exception e) {
+                System.err.println("Erro desconhecido: " + e.getMessage());
+            }
+        };
     }
 }

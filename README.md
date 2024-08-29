@@ -19,7 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ✅ #7DaysOfCode - Dia 3/7  
 ✅ #7DaysOfCode - Dia 4/7  
 ✅ #7DaysOfCode - Dia 5/7  
-⏳ #7DaysOfCode - Dia 6/7  
+✅ #7DaysOfCode - Dia 6/7  
 ⏳ #7DaysOfCode - Dia 7/7
 
 ## 📝 Detalhamento
@@ -59,6 +59,13 @@ O que foi implementado até o momento no projeto:
 - Encapsulamento da chamada API na classe ImdbApiClient.
 - Encapsulamento do parseamento do JSON na classe ImdbMovieJsonParser.
 
+### **#7DaysOfCode - Dia 6/7**
+- Implementação da API da Marvel no projeto.
+- Preparação do código para lidar com diferentes APIs, tornando-o mais genérico e flexível.
+- Criação de interfaces para definir o comportamento comum dos conteúdos (como filmes, séries, e histórias em quadrinhos).
+
+
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -67,6 +74,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você configurou corretamente o `Apache Maven 3.9.8` para gerenciar as dependências do projeto.
 - Você tem uma máquina `Windows, Linux ou Mac` (compatível com todos os sistemas operacionais).
 - Você leu a documentação da API OMDb para se familiarizar com as chamadas de API e requisitos: [Documentação OMDb](https://www.omdbapi.com/).
+- Você leu a documentação da API Marvel Comics para se familiarizar com as chamadas de API e requisitos: [Documentação Marvel Comics](https://developer.marvel.com/).
 
 ## 🚀 Instalando Imdb Movies Explorer
 
@@ -86,6 +94,9 @@ Para instalar o Imdb Movies Explorer, siga estas etapas:
     ```env
     API_KEY=<sua_chave_omdb>
     MOVIE_REPORT="output/movies_report.html"
+    MARVEL_PUBLIC_KEY=<marvel_public_key>
+    MARVEL_PRIVATE_KEY=<marvel_private_key>
+    MARVEL_REPORT="output/marvel_report.html"
     ```
 
 3. Compile o projeto com Maven:
