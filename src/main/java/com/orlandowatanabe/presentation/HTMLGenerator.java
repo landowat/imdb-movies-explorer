@@ -1,20 +1,18 @@
 package com.orlandowatanabe.presentation;
 
-import com.orlandowatanabe.models.Movie;
+import com.orlandowatanabe.interfaces.Content;
 
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.List;
 
-public class HTMLGenerator {
+public class HTMLGenerator<T extends Content> {
     private final PrintWriter writer;
 
-    public HTMLGenerator(Writer writer) {
-        this.writer = new PrintWriter(writer);
+    public HTMLGenerator(PrintWriter writer) {
+        this.writer = writer;
     }
 
-    public void generate(List<Movie> movies) {
-        // Define o HTML do cabeçalho
+    public void generate(List<T> contentList) {
         String head = """
         <head>
             <meta charset="utf-8">
@@ -22,31 +20,30 @@ public class HTMLGenerator {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
-                    background-color: #282a36; /* Cor de fundo tema dracula */
-                    color: #f8f8f2; /* Cor do texto padrão do tema Dracula */
+                    background-color: #282a36;
+                    color: #f8f8f2;
                 }
         
                 .card-img-top {
                     height: 550px !important;
-                    object-fit: cover !important; /* Garante que a imagem se ajuste ao container sem distorção */
+                    object-fit: cover !important;
                 }
         
                 .card-body {
-                    background-color: #44475a !important; /* Define uma cor de fundo suave para o corpo do card */
+                    background-color: #44475a !important;
                 }
         
                 .card-title {
-                    color: #bd93f9 !important; /* Cor do título do card */
+                    color: #bd93f9 !important;
                 }
         
                 .card-text {
-                    color: #f8f8f2 !important; /* Cor do texto do card */
+                    color: #f8f8f2 !important;
                 }
             </style>
         </head>
         """;
 
-        // Define o HTML do corpo
         String bodyStart = """
         <body>
             <div class="container">
@@ -54,32 +51,28 @@ public class HTMLGenerator {
                 <div class="row">
         """;
 
-        // Adiciona a lista de filmes ao corpo
         StringBuilder moviesHtml = new StringBuilder();
-        for (Movie movie : movies) {
+        for (Content content : contentList) {
             moviesHtml.append("<div class=\"col-md-4 mb-4\">\n")
                     .append("    <div class=\"card\">\n")
-                    .append("        <img src=\"").append(movie.urlImage()).append("\" class=\"card-img-top\" alt=\"Poster do Filme\">\n")
+                    .append("        <img src=\"").append(content.urlImage()).append("\" class=\"card-img-top\" alt=\"Poster do Filme\">\n")
                     .append("        <div class=\"card-body\">\n")
-                    .append("            <h5 class=\"card-title\">").append(movie.title()).append("</h5>\n")
+                    .append("            <h5 class=\"card-title\">").append(content.title()).append("</h5>\n")
                     .append("            <p class=\"card-text\">\n")
-                    .append("                <strong>Ano:</strong> ").append(movie.year()).append("<br>\n")
-                    .append("                <strong>Tipo:</strong> ").append(movie.type()).append("<br>\n")
-                    .append("                <strong>IMDb ID:</strong> ").append(movie.imdbID()).append("\n")
+                    .append("                <strong>Ano:</strong> ").append(content.year()).append("<br>\n")
+                    .append("                <strong>Nota:</strong> ").append(content.rating()).append("<br>\n")
                     .append("            </p>\n")
                     .append("        </div>\n")
                     .append("    </div>\n")
                     .append("</div>\n");
         }
 
-        // Fecha o HTML do corpo
         String bodyEnd = """
                 </div>
             </div>
         </body>
         """;
 
-        // Escreve o HTML completo
         writer.println("<!DOCTYPE html>");
         writer.println("<html lang=\"pt-BR\">");
         writer.println(head);

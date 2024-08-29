@@ -1,5 +1,6 @@
 package com.orlandowatanabe.parsers;
 
+import com.orlandowatanabe.interfaces.JsonParser;
 import com.orlandowatanabe.models.Movie;
 
 import java.util.ArrayList;
@@ -7,15 +8,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser<Movie> {
 
-    private String json;
-
-    public ImdbMovieJsonParser(String json) {
-        this.json = json;
-    }
-
-    public List<Movie> parse() {
+    @Override
+    public List<Movie> parse(String json) {
         List<Movie> movies = new ArrayList<>();
 
         // Expressões regulares para capturar os campos Title, Year, imdbID, Type e Poster
@@ -37,8 +33,9 @@ public class ImdbMovieJsonParser {
             String imdbID = imdbIDMatcher.group(1);
             String type = typeMatcher.group(1);
             String urlImage = posterMatcher.group(1);
+            String rating = "";
 
-            Movie movie = new Movie(title, year, imdbID, type, urlImage);
+            Movie movie = new Movie(title, year, imdbID, type, urlImage, rating);
             movies.add(movie);
         }
 
