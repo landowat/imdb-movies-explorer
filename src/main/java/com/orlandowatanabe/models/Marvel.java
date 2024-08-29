@@ -21,13 +21,11 @@ public class Marvel implements Content {
 
     @Override
     public String rating() {
-        // Retorna uma classificação baseada nos dados (exemplo)
         return "N/A";
     }
 
     @Override
     public String year() {
-        // Extrai o ano da data de venda, se disponível
         return dates.stream()
                 .filter(date -> "onsaleDate".equals(date.getType()))
                 .findFirst()

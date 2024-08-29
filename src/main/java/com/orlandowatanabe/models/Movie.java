@@ -19,8 +19,6 @@ public class Movie implements Content {
         this.rating = rating;
     }
 
-    // Construtor e outros métodos
-
     @Override
     public String title() {
         return title;
@@ -38,7 +36,6 @@ public class Movie implements Content {
 
     @Override
     public String rating() {
-        // Retorna uma classificação baseada nos dados (exemplo)
         return "N/A";
     }
 }
