@@ -1,23 +1,26 @@
 package com.orlandowatanabe.models;
 
+import com.google.gson.annotations.SerializedName;
 import com.orlandowatanabe.interfaces.Content;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-public class Movie implements Content {
-    private final String title;
-    private final String year;
-    private final String imdbID;
-    private final String type;
-    private final String urlImage;
-    private final String rating;
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Movie implements Content, Comparable<Movie> {
 
-    public Movie(String title, String year, String imdbID, String type, String urlImage, String rating) {
-        this.title = title;
-        this.year = year;
-        this.imdbID = imdbID;
-        this.type = type;
-        this.urlImage = urlImage;
-        this.rating = rating;
-    }
+    @SerializedName("Title")
+    private String title;
+
+    @SerializedName("Year")
+    private String year;
+
+    @SerializedName("Poster")
+    private String urlImage;
+
+    private String rating;
 
     @Override
     public String title() {
@@ -30,12 +33,22 @@ public class Movie implements Content {
     }
 
     @Override
+    public String type() {
+        return "Movie";
+    }
+
+    @Override
     public String urlImage() {
         return urlImage;
     }
 
     @Override
     public String rating() {
-        return "N/A";
+        return rating != null ? rating : "N/A";
+    }
+
+    @Override
+    public int compareTo(Movie other) {
+        return this.title.compareTo(other.title);
     }
 }

@@ -25,6 +25,9 @@ public class ImdbApiClient implements APIClient {
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println("Body: " + response.body());
+
         return response.body();
     }
 }

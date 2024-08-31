@@ -20,7 +20,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ✅ #7DaysOfCode - Dia 4/7  
 ✅ #7DaysOfCode - Dia 5/7  
 ✅ #7DaysOfCode - Dia 6/7  
-⏳ #7DaysOfCode - Dia 7/7
+✅ #7DaysOfCode - Dia 7/7
 
 ## 📝 Detalhamento
 
@@ -64,6 +64,12 @@ O que foi implementado até o momento no projeto:
 - Preparação do código para lidar com diferentes APIs, tornando-o mais genérico e flexível.
 - Criação de interfaces para definir o comportamento comum dos conteúdos (como filmes, séries, e histórias em quadrinhos).
 
+### **#7DaysOfCode - Dia 7/7**
+- Implementação de solução para consolidar dados de filmes e séries em uma única lista, combinando informações obtidas de APIs da OMDb e Marvel.
+- Uso da API de Streams para manipular e unir as listas de forma eficiente.
+- Ajustes na geração de HTML para exibir a lista completa de filmes e séries, melhorando a apresentação dos dados no relatório final.
+- Preenchimento do campo "Tipo" nos modelos de dados para distinguir claramente entre filmes e séries na visualização HTML, garantindo que o conteúdo seja apresentado de forma clara e organizada.
+- Uso da biblioteca Lombok nos Modelos e DTOs para reduzir a quantidade de código boilerplate, simplificando a implementação dos getters, setters e construtores.
 
 
 ## 💻 Pré-requisitos
@@ -93,10 +99,9 @@ Para instalar o Imdb Movies Explorer, siga estas etapas:
 
     ```env
     API_KEY=<sua_chave_omdb>
-    MOVIE_REPORT="output/movies_report.html"
     MARVEL_PUBLIC_KEY=<marvel_public_key>
     MARVEL_PRIVATE_KEY=<marvel_private_key>
-    MARVEL_REPORT="output/marvel_report.html"
+    CONTENT_REPORT="output/contentReport.html"    
     ```
 
 3. Compile o projeto com Maven:
@@ -119,15 +124,13 @@ Para usar o Imdb Movies Explorer, siga estas etapas:
     - Isso iniciará a aplicação que faz a busca de filmes na API OMDb.
 
 2. **O que a aplicação faz:**
-    - A aplicação faz uma requisição para a API OMDb para buscar filmes que contêm o termo "Avengers".
+    - A aplicação faz uma requisição para a API OMDb e  para buscar filmes que contêm o termo "Avengers". Foi incluida uma nova requisição para a API de Marvel, que retorna uma lista com as séries da Marvel.
     - Os dados dos filmes retornados são extraídos (título, ano, IMDb ID, tipo e URL do pôster) e armazenados como objetos na classe `Movie`.
     - ~~Os filmes são listados no console, exibindo todas as informações capturadas.~~
-    - Os filmes serão apresentados em uma página HTML, gerada no diretório output.
+    - Os filmes e séries serão apresentados em uma página HTML, gerada no diretório output.
 
    **Detalhes adicionais:**
-    - A aplicação utiliza expressões regulares para extrair informações do JSON retornado.
-    - As informações extraídas incluem título, ano, IMDb ID, tipo e URL do pôster de cada filme.
-    - A lista de filmes é exibida no console após a extração.
+    - A aplicação emprega a biblioteca GSON para processar e extrair informações dos dados JSON recebidos das APIs.
 
 3. **Possíveis ajustes:**
     - Você pode alterar o termo de busca ao modificar a URL na linha de código onde a variável `url` é definida:
