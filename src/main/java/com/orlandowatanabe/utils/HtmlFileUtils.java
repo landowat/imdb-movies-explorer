@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class HtmlFileUtils {
-    public static <T extends Content> void writeToHtml(List<T> contentList, String filePath, Supplier<HTMLGenerator<T>> generatorSupplier) throws IOException {
+    public static <T extends Content> void writeToHtml(List<Content> contentList, String filePath, Supplier<HTMLGenerator<T>> generatorSupplier) throws IOException {
         File outputDirectory = new File(filePath).getParentFile();
         Utils.checkDirectory(outputDirectory);
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             HTMLGenerator<T> generator = generatorSupplier.get();
             generator.generate(contentList);
-        }catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

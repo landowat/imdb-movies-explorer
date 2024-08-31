@@ -1,21 +1,17 @@
 package com.orlandowatanabe.dto;
 
-import com.orlandowatanabe.models.Marvel;
+import com.orlandowatanabe.models.Series;
+import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public class MarvelApiResponse {
     private Data data;
 
-    public Data getData() {
-        return data;
-    }
-
+    @Getter
     public static class Data {
-        private List<Marvel> results;
+        private List<Series> results;
 
-        public List<Marvel> getResults() {
-            return results;
-        }
     }
 }

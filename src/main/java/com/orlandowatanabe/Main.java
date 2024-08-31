@@ -25,8 +25,7 @@ public class Main {
     public CommandLineRunner run(ReportService reportService, AppConfigProperties properties) {
         return args -> {
             try {
-                reportService.generateMovieReport(properties.getMovieReportPath());
-                reportService.generateMarvelReport(properties.getMarvelReportPath());
+                reportService.generateReport(properties.getReportPath());
             } catch (IOException io) {
                 System.err.println("Erro na operação de entrada e saída: " + io.getMessage());
             } catch (InterruptedException ie) {

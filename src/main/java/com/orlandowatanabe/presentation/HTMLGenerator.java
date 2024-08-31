@@ -12,7 +12,7 @@ public class HTMLGenerator<T extends Content> {
         this.writer = writer;
     }
 
-    public void generate(List<T> contentList) {
+    public void generate(List<Content> contentList) {
         String head = """
         <head>
             <meta charset="utf-8">
@@ -59,6 +59,7 @@ public class HTMLGenerator<T extends Content> {
                     .append("        <div class=\"card-body\">\n")
                     .append("            <h5 class=\"card-title\">").append(content.title()).append("</h5>\n")
                     .append("            <p class=\"card-text\">\n")
+                    .append("                <strong>Tipo:</strong> ").append(content.type()).append("<br>\n")
                     .append("                <strong>Ano:</strong> ").append(content.year()).append("<br>\n")
                     .append("                <strong>Nota:</strong> ").append(content.rating()).append("<br>\n")
                     .append("            </p>\n")
